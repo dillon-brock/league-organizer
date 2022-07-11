@@ -16,6 +16,34 @@ export async function getTeamsWithPlayers() {
     return checkResponse(response);
 }
 
+export async function getTeams() {
+    const response = await client
+        .from('teams')
+        .select(`
+            id,
+            name
+        `);
+    
+    return checkResponse(response);
+}
+
+export async function getPlayers() {
+    const response = await client
+        .from('players')
+        .select(`
+        id,
+        name,
+        created_at,
+        team:teams(
+            id,
+            name
+        )
+        `)
+        .order('created_at', { ascending: false });
+
+    return checkResponse(response);
+}
+
 export async function addPlayer(name, team_id) {
     const response = await client
         .from('players')
