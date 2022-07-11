@@ -15,3 +15,32 @@ export async function getTeamsWithPlayers() {
     
     return checkResponse(response);
 }
+
+export async function addPlayer(name, team_id) {
+    const response = await client
+        .from('players')
+        .insert({
+            name,
+            team_id
+        })
+        .single();
+    
+    const data = checkResponse(response);
+
+    if (data) {
+        data.teamId = data.team_id;
+    }
+
+    return data;
+}
+
+export async function removePlayer(id) {
+    const response = await client
+        .from('players')
+        .delete()
+        .match({ id })
+        .single();
+    
+    return checkResponse(response);
+    
+}
