@@ -42,7 +42,7 @@ const User = createUser(
     { handleSignOut }
 );
 
-const Players = createPlayerList(document.querySelector('#players'));
+const Players = createPlayerList(document.querySelector('tbody'));
 const AddPlayer = createAddPlayer(document.querySelector('form'), { handleAddPlayer });
 
 function display() {

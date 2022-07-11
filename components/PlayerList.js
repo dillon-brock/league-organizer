@@ -1,5 +1,7 @@
 export default function createPlayerList(root) {
+
     return ({ players }) => {
+        
         for (const player of players) {
             root.append(Player({ player }));
         }
