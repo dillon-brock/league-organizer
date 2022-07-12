@@ -72,3 +72,14 @@ export async function removePlayer(id) {
     return checkResponse(response);
     
 }
+
+export async function addTeam(teamName) {
+    const response = await client
+        .from('teams')
+        .insert({
+            name: teamName
+        })
+        .single();
+    
+    return checkResponse(response);
+}

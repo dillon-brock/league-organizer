@@ -1,8 +1,9 @@
 import { getUser, signOut } from './services/auth-service.js';
 import { protectPage, findById } from './utils.js';
 import createUser from './components/User.js';
-import { addPlayer, getTeamsWithPlayers, removePlayer } from './services/league-organizer-service.js';
+import { addPlayer, addTeam, getTeamsWithPlayers, removePlayer } from './services/league-organizer-service.js';
 import createTeams from './components/Teams.js';
+import createAddTeam from './components/AddTeam.js';
 
 // State
 let user = null;
@@ -19,6 +20,14 @@ async function handlePageLoad() {
 
 async function handleSignOut() {
     signOut();
+}
+
+async function handleAddTeam(teamName) {
+
+    const team = await addTeam(teamName);
+    team.players = [];
+    teams.push(team);
+    display();
 }
 
 async function handleAddPlayer(name, teamId) {
@@ -49,10 +58,12 @@ const User = createUser(
 );
 
 const Teams = createTeams(document.querySelector('#teams'), { handleAddPlayer, handleRemovePlayer });
+const AddTeam = createAddTeam(document.querySelector('form'), { handleAddTeam });
 
 function display() {
     User({ user });
     Teams({ teams });
+    AddTeam();
 }
 
 handlePageLoad();
