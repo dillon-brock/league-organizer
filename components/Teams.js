@@ -15,6 +15,7 @@ function Team({ team, handleAddPlayer, handleRemovePlayer }) {
     h2.textContent = team.name;
 
     const ul = document.createElement('ul');
+    ul.classList.add('players');
     for (const player of team.players) {
         ul.append(Player({ player, handleRemovePlayer }));
     }
@@ -31,8 +32,10 @@ function Player({ player, handleRemovePlayer }) {
 
     const h3 = document.createElement('h3');
     h3.textContent = player.name;
+    h3.classList.add('player-name');
 
     const button = document.createElement('button');
+    button.classList.add('delete');
     button.textContent = 'x';
 
     button.addEventListener('click', () => {
@@ -60,6 +63,7 @@ function AddForm({ team, handleAddPlayer }) {
     input.placeholder = 'New Player...';
 
     const button = document.createElement('button');
+    button.classList.add('add-button');
     button.textContent = '+';
     
     form.append(input, button);

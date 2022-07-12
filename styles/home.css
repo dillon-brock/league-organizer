@@ -1,0 +1,120 @@
+html {
+    --header-background: #2C363F;
+    --main-white: #F2F5EA;
+    --accent: #E75A7C;
+    --green-accent: #BBC7A4;
+    --light-cyan: #E5FCF5;
+    --turquoise-green: #BCDEC1;
+    --dark-purple: #210124;
+    --wine-red: #750D37;
+}
+
+h1 {
+    color: var(--light-cyan);
+}
+
+h2 {
+    display: inline-block;
+    width: 100%;
+    background-color: var(--accent);
+    color: var(--main-white);
+    margin-top: 0;
+    padding: 10px 0px 10px 0px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+header {
+    background-color: var(--header-background);
+    color: var(--main-white);
+}
+
+#nav-links {
+    
+}
+
+.nav-link {
+    background: var(--light-cyan);
+    text-align: center;
+}
+
+span {
+    color: var(--light-cyan);
+}
+
+h3 {
+    margin: 0px;
+}
+
+#teams {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    justify-items: center;
+    justify-content: center;
+    row-gap: 50px;
+    column-gap: 20px;
+}
+
+.team {
+    border-radius: 10px;
+    width: 80%;
+}
+
+.players {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin: 10px 0px 30px 0px;
+}
+
+li {
+    background: var(--main-white);
+    text-align: center;
+    width: 300px;
+}
+
+.player {
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    width: 50%;
+    border-radius: 6px;
+    border: 3px solid var(--header-background);
+}
+
+.player-name {
+    width: fit-content;
+}
+
+
+form {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-button {
+    position: relative;
+    top: -10px;
+    border-radius: 30%;
+    border: transparent;
+    background: white;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+input {
+    padding: 6px;
+    border-radius: 6px;
+    border: transparent;
+    margin-bottom: 20px;
+}
