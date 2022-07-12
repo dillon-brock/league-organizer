@@ -1,6 +1,8 @@
 export default function createPlayerList(root) {
 
     return ({ players }) => {
+
+        root.innerHTML = '';
         
         for (const player of players) {
             root.append(Player({ player }));
