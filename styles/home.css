@@ -10,7 +10,7 @@ html {
 }
 
 h1 {
-    color: var(--light-cyan);
+    color: var(--main-white);
 }
 
 h2 {
@@ -27,15 +27,32 @@ h2 {
 header {
     background-color: var(--header-background);
     color: var(--main-white);
+    padding-left: 40px;
 }
 
 #nav-links {
-    
+    display: flex;
+    padding-right: 30px;
+    width: 100%;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+#nav-links a {
+    text-decoration: none;
+    color: black;
 }
 
 .nav-link {
-    background: var(--light-cyan);
+    background-color: var(--main-white);
     text-align: center;
+    padding: 8px;
+    border-radius: 4px;
+    border: 3px solid var(--green-accent);
+}
+
+#nav-links a:hover {
+    background-color: var(--green-accent);
 }
 
 span {
@@ -83,7 +100,18 @@ li {
     gap: 40px;
     width: 50%;
     border-radius: 6px;
-    border: 3px solid var(--header-background);
+    border: 5px solid var(--header-background);
+    padding: 4px 8px;
+}
+
+.delete {
+    height: 20px;
+    width: 20px;
+    align-self: center;
+    background: var(--header-background);
+    color: var(--main-white);
+    border: transparent;
+    border-radius: 5px;
 }
 
 .player-name {
