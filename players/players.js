@@ -1,7 +1,7 @@
 import { getUser, signOut } from '../services/auth-service.js';
 import { findById, protectPage } from '../utils.js';
 import createUser from '../components/User.js';
-import { addPlayer, getPlayers, getTeams } from '../services/league-organizer-service.js';
+import { addPlayer, removePlayer, getPlayers, getTeams } from '../services/league-organizer-service.js';
 import createPlayerList from '../components/PlayerList.js';
 import createAddPlayer from '../components/AddPlayer.js';
 
@@ -36,13 +36,24 @@ async function handleAddPlayer(name, teamId) {
     
 }
 
+async function handleRemovePlayer(player) {
+    const message = `Are you sure you want to remove ${player.name}?`;
+    if (!confirm(message)) return;
+    
+    await removePlayer(player.id);
+
+    players.splice(players.indexOf(player), 1);
+
+    display();
+}
+
 // Components 
 const User = createUser(
     document.querySelector('#user'),
     { handleSignOut }
 );
 
-const Players = createPlayerList(document.querySelector('tbody'));
+const Players = createPlayerList(document.querySelector('tbody'), { handleRemovePlayer });
 const AddPlayer = createAddPlayer(document.querySelector('form'), { handleAddPlayer });
 
 function display() {

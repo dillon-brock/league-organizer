@@ -1,16 +1,16 @@
-export default function createPlayerList(root) {
+export default function createPlayerList(root, { handleRemovePlayer }) {
 
     return ({ players }) => {
 
         root.innerHTML = '';
         
         for (const player of players) {
-            root.append(Player({ player }));
+            root.append(Player({ player, handleRemovePlayer }));
         }
     };
 }
 
-function Player({ player }) {
+function Player({ player, handleRemovePlayer }) {
     const tr = document.createElement('tr');
     const nameTd = document.createElement('td');
     nameTd.textContent = player.name;
@@ -20,8 +20,18 @@ function Player({ player }) {
 
     const addedTd = document.createElement('td');
     addedTd.textContent = new Date(player.created_at).toLocaleDateString();
+
+    const deleteTd = document.createElement('td');
+    const button = document.createElement('button');
+    button.textContent = 'remove';
     
-    tr.append(nameTd, teamTd, addedTd);
+    button.addEventListener('click', () => {
+        handleRemovePlayer(player);
+    });
+
+    deleteTd.append(button);
+    
+    tr.append(nameTd, teamTd, addedTd, deleteTd);
 
     return tr;
 }
