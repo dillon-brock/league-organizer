@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&family=Titillium+Web:wght@200;400;600&display=swap">
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/players.css" />
+    <title>Player List</title>
+</head>
+
+<body>
+    <header>
+        <h1>Players</h1>
+        <div id="nav-links">
+            <a href="/" class="nav-link" id="teams-link">Teams</a>
+            <a href="." class="nav-link">Players</a>
+        </div>
+        <div id="user"></div>
+    </header>
+
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Team</td>
+                    <td>Added</td>
+                    <td>Remove</td>
+                </tr>
+                <tbody>
+
+                </tbody>
+            </thead>
+        </table>
+        <form>
+            <input name="name" placeholder="New Player..." required>
+            <select name="teamId" required></select>
+            <button>Add Player</button>
+        </form>
+    </main>
+
+    <footer>&copy;2022 Aspiring Software Developer</footer>
+
+    <script type="module" src="players.js"></script>
+</body>
+
+</html>
