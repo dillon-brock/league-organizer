@@ -14,21 +14,29 @@
     <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/main.css" />
     <link rel="stylesheet" href="./styles/home.css" />
-    <title>Cool Web App</title>
+    <title>League Organizer</title>
 </head>
 
 <body>
     <header>
-        <img src="./assets/html_css_js.png">
-        <h1>Cool Web App</h1>
+        <h1>Teams</h1>
+        <div id="nav-links">
+            <a href="." class="nav-link" id="teams-link">Teams</a>
+            <a href="./players" class="nav-link">Players</a>
+        </div>
         <div id="user"></div>
     </header>
 
     <main>
-
+        <ul id="teams"></ul>
+        <form id="team-form">
+            <h4>Add Team</h4>
+            <div id="inputs">
+                <input id="team-input" name="teamName" placeholder="team name...">
+                <button>+</button>
+            </div>
+        </form>
     </main>
-
-    <footer>&copy;2022 Aspiring Software Developer</footer>
 
     <script type="module" src="app.js"></script>
 </body>
